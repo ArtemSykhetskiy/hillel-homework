@@ -23,7 +23,7 @@ class ValueObject{
         return $obj;
     }
 
-    public function equals(ValueObject $obj) {
+    public function equals(ValueObject $obj) : bool {
         if($this->red == $obj->red && $this->green == $obj->green && $this->blue == $obj->blue){
             return true;
         }
