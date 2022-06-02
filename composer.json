@@ -1,0 +1,19 @@
+{
+    "name": "mac/1",
+    "autoload": {
+        "psr-4": {
+            "App\\": "App",
+            "App\\Http\\Controllers\\": "App/Http/Controllers",
+            "App\\Http\\Controllers\\Admin\\": "App/Http/Controllers/Admin",
+            "App\\Http\\Controllers\\Helpers\\": "App/Http/Controllers/Helpers",
+            "gitModels\\": "App/Models"
+        }
+    },
+    "authors": [
+        {
+            "name": "ArtemSykhetskiy",
+            "email": "2210ams@gmail.com"
+        }
+    ],
+    "require": {}
+}
