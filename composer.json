@@ -6,7 +6,7 @@
             "App\\Http\\Controllers\\": "App/Http/Controllers",
             "App\\Http\\Controllers\\Admin\\": "App/Http/Controllers/Admin",
             "App\\Http\\Controllers\\Helpers\\": "App/Http/Controllers/Helpers",
-            "gitModels\\": "App/Models"
+            "Models\\": "App/Models"
         }
     },
     "authors": [
