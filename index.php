@@ -5,7 +5,7 @@
 
     if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['newTable'] == 1){
         $db->createTable('user');
-        header('Location:user.php');
+        header('Location:index.php');
     }
 ?>
 <?php if($isTable === false):?>

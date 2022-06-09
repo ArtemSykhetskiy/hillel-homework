@@ -7,10 +7,10 @@ $id_user = $_GET['id'];
 $user = $db->getUserById($id_user);
 ?>
 
-<p>Name = <?= $user[0]['name'];?></p>
-<p>Surname = <?= $user[0]['surname'];?></p>
-<p>Email = <?= $user[0]['email'];?></p>
-<p>Age = <?= $user[0]['age'];?></p>
+<p>Name = <?= $user['name'];?></p>
+<p>Surname = <?= $user['surname'];?></p>
+<p>Email = <?= $user['email'];?></p>
+<p>Age = <?= $user['age'];?></p>
 
 
 <hr>

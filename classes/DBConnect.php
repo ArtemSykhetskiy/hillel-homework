@@ -50,7 +50,7 @@ class DBConnect
         $values = ['id' => $id];
         $query->execute($values);
 
-        return $query->fetchAll(PDO::FETCH_ASSOC);
+        return $query->fetch(PDO::FETCH_ASSOC);
     }
 
     public function deleteUser($id){
