@@ -56,11 +56,6 @@ class ContactDetails implements ContactDetail {
 class Contact
 {
     public $parts = [];
-
-    public function listParts(): void
-    {
-        echo "Contact Details: " . implode(', ', $this->parts) . "\n\n";
-    }
 }
 
 
@@ -69,7 +64,6 @@ $newContact = $contact1->name("John");
 $newContact = $contact1->surname("Smith");
 $newContact = $contact1->phone("24235225");
 $newContact = $contact1->address("Ukraine");
-$newContact = $contact1->build();
 
 echo "<br><br>";
 
