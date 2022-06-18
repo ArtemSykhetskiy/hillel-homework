@@ -1,79 +1,79 @@
 <?php
 
-abstract class TaxiType{
-
-    abstract public function createTaxi() : Type;
-
-    public function taxiInfo(){
-        $taxi = $this->createTaxi();
-        $result = 'Taxi model -> ' . $taxi->taxiModel() . "<br>";
-        $result.= 'Price -> ' . $taxi->taxiPrice(). "<br>";
-
-        return $result;
-    }
+interface ContactDetail
+{
+    public function name($name) : void;
+    public function phone($phone) : void;
+    public function surname($surname) : void;
+    public function email($email) : void;
+    public function address($address) : void;
 }
 
-class Econom extends TaxiType{
-    public function createTaxi(): Type
+class ContactDetails implements ContactDetail {
+    private $contactDetails;
+
+    public function __construct(){
+        $this->reset();
+    }
+
+    public function reset()
     {
-        return new TaxiEconom();
+        $this->contactDetails = new Contact();
     }
-}
 
-
-class Standart extends TaxiType{
-    public function createTaxi(): Type
+    public function phone($phone) : void
     {
-        return new TaxiStandart();
+        $this->contactDetails->parts[] = $phone;
     }
-}
 
-
-class Lux extends TaxiType{
-    public function createTaxi(): Type
+    public function name($name) : void
     {
-        return new TaxiLux();
+       $this->contactDetails->parts[] = $name;
+    }
+
+    public function surname($surname) : void
+    {
+        $this->contactDetails->parts[] = $surname;
+    }
+
+    public function email($email) : void
+    {
+        $this->contactDetails->parts[] = $email;
+    }
+
+    public function address($address) : void
+    {
+        $this->contactDetails->parts[] = $address;
+    }
+    public function build()
+    {
+       echo implode(', ', $this->contactDetails->parts);
+        $this->reset();
+
     }
 }
 
-interface Type{
-    public function taxiModel();
-    public function taxiPrice();
-}
+class Contact
+{
+    public $parts = [];
 
-class TaxiEconom implements Type{
-    public function taxiModel() : string{
-        return 'Toyota Corolla';
-    }
-    public function taxiPrice() : int{
-        return 10;
+    public function listParts(): void
+    {
+        echo "Contact Details: " . implode(', ', $this->parts) . "\n\n";
     }
 }
 
-class TaxiStandart implements Type{
-    public function taxiModel() : string{
-        return 'Toyota Camry';
-    }
-    public function taxiPrice() : int{
-        return 15;
-    }
-}
 
-class TaxiLux implements Type{
-    public function taxiModel() : string{
-        return 'Mersedes S class';
-    }
-    public function taxiPrice() : int{
-        return 20;
-    }
-}
+$contact1 = new ContactDetails();
+$newContact = $contact1->name("John");
+$newContact = $contact1->surname("Smith");
+$newContact = $contact1->phone("24235225");
+$newContact = $contact1->address("Ukraine");
+$newContact = $contact1->build();
 
-function clientCode(TaxiType $taxiType){
-    echo $taxiType->taxiInfo();
-}
+echo "<br><br>";
 
-
-clientCode(new Econom());
-clientCode(new Lux());
-clientCode(new Standart());
+$newContact = $contact1->name("Jack");
+$newContact = $contact1->surname("Taylor");
+$newContact = $contact1->build();
 
