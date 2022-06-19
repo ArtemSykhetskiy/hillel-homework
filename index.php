@@ -2,11 +2,11 @@
 
 interface ContactDetail
 {
-    public function name($name) : void;
-    public function phone($phone) : void;
-    public function surname($surname) : void;
-    public function email($email) : void;
-    public function address($address) : void;
+    public function name($name);
+    public function phone($phone);
+    public function surname($surname);
+    public function email($email);
+    public function address($address);
 }
 
 class ContactDetails implements ContactDetail {
@@ -21,29 +21,34 @@ class ContactDetails implements ContactDetail {
         $this->contactDetails = new Contact();
     }
 
-    public function phone($phone) : void
+    public function phone($phone)
     {
         $this->contactDetails->parts[] = $phone;
+        return $this;
     }
 
-    public function name($name) : void
+    public function name($name)
     {
        $this->contactDetails->parts[] = $name;
+        return $this;
     }
 
-    public function surname($surname) : void
+    public function surname($surname)
     {
         $this->contactDetails->parts[] = $surname;
+        return $this;
     }
 
-    public function email($email) : void
+    public function email($email)
     {
         $this->contactDetails->parts[] = $email;
+        return $this;
     }
 
-    public function address($address) : void
+    public function address($address)
     {
         $this->contactDetails->parts[] = $address;
+        return $this;
     }
     public function build()
     {
@@ -60,14 +65,14 @@ class Contact
 
 
 $contact1 = new ContactDetails();
-$newContact = $contact1->name("John");
-$newContact = $contact1->surname("Smith");
-$newContact = $contact1->phone("24235225");
-$newContact = $contact1->address("Ukraine");
+$newContact = $contact1->name("John")
+    ->surname('Smith')
+    ->phone('1324252')
+    ->address('Test')
+    ->build();
+
 
 echo "<br><br>";
 
-$newContact = $contact1->name("Jack");
-$newContact = $contact1->surname("Taylor");
-$newContact = $contact1->build();
+$newContact = $contact1->name("Jack")->surname("Taylor")->build();
 
